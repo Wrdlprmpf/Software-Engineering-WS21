@@ -1,3 +1,5 @@
+//Nicolas Wetscher 11845621
+
 public class Einstiegsbeispiel {
 
     public static int getHammingDistance(boolean[] array1, boolean[] array2) {
