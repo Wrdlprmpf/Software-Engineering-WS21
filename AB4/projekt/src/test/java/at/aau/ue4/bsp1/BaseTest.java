@@ -77,6 +77,7 @@ public class BaseTest {
         assertThrows(RuntimeException.class,()->ringBuffer.pop());
     }
 
+
     @Test
     public void shouldReturnItem_whenItemIsPopped(){
         ringBuffer.push(42);
@@ -100,8 +101,14 @@ public class BaseTest {
     }
 
     @Test
-    public void shouldReturnFalse_whenIteratorMethodHasNoNext(){
+    public void shouldReturnFalse_whenRingBufferHasNoNext(){
         assertFalse(ringBufferIterator.hasNext());
+    }
+
+    @Test
+    public void shouldReturnTrue_whenRingBufferHasANextValue(){
+        ringBuffer.push(0);
+        assertTrue(ringBufferIterator.hasNext());
     }
 
     @Test
