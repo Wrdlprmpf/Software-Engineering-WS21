@@ -45,6 +45,7 @@ public class MyCollectionTest {
 
     @Test
     public void shouldThrow_whenAttemptingToRemoveItemFromEmptyCollection(){
+        c.empty();
         assertThrows(IllegalArgumentException.class, ()->c.remove("1"));
     }
 

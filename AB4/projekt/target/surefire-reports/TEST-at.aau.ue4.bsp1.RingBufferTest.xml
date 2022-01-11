@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="16" failures="0" name="at.aau.ue4.bsp1.RingBufferTest" time="0.072" errors="0" skipped="0">
+<testsuite tests="17" failures="0" name="at.aau.ue4.bsp1.RingBufferTest" time="0.081" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.1.3"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -56,20 +56,21 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase classname="BaseTest" name="shouldThrow_whenRemoveIsExecuted()" time="0.033"/>
+  <testcase classname="BaseTest" name="shouldThrow_whenRemoveIsExecuted()" time="0.042"/>
   <testcase classname="BaseTest" name="shouldThrow_whenRingBufferIsEmpty()" time="0.001"/>
-  <testcase classname="BaseTest" name="shouldReturnNextElement_whenBufferIsLoaded()" time="0.023"/>
-  <testcase classname="BaseTest" name="shouldReturnFalse_whenIteratorMethodHasNoNext()" time="0.003"/>
-  <testcase classname="BaseTest" name="shouldThrow_whenEmptyPopped()" time="0.001"/>
-  <testcase classname="BaseTest" name="shouldReturnTrue_whenEmpty()" time="0.004"/>
-  <testcase classname="BaseTest" name="shouldReturnFive_whenBufferHasFiveElements()" time="0.001"/>
-  <testcase classname="BaseTest" name="shouldThrow_whenPushedOverCapacity()" time="0.001"/>
+  <testcase classname="BaseTest" name="shouldReturnNextElement_whenBufferIsLoaded()" time="0.022"/>
+  <testcase classname="BaseTest" name="shouldThrow_whenEmptyPopped()" time="0.002"/>
+  <testcase classname="BaseTest" name="shouldReturnTrue_whenEmpty()" time="0.002"/>
+  <testcase classname="BaseTest" name="shouldReturnFive_whenBufferHasFiveElements()" time="0"/>
+  <testcase classname="BaseTest" name="shouldThrow_whenPushedOverCapacity()" time="0.003"/>
+  <testcase classname="BaseTest" name="shouldReturnFalse_whenRingBufferHasNoNext()" time="0.002"/>
   <testcase classname="BaseTest" name="shouldDecreaseSize_whenItemsGetPopped()" time="0"/>
-  <testcase classname="BaseTest" name="shouldReturnItem_whenItemIsPopped()" time="0"/>
-  <testcase classname="BaseTest" name="shouldReturnZero_whenBufferIsEmpty()" time="0.002"/>
-  <testcase classname="BaseTest" name="shouldThrow_whenMethodRemoveIsLoaded()" time="0.001"/>
-  <testcase classname="BaseTest" name="shouldReturnFalse_whenNotEmpty()" time="0.001"/>
+  <testcase classname="BaseTest" name="shouldReturnItem_whenItemIsPopped()" time="0.001"/>
+  <testcase classname="BaseTest" name="shouldReturnZero_whenBufferIsEmpty()" time="0.003"/>
+  <testcase classname="BaseTest" name="shouldReturnTrue_whenRingBufferHasANextValue()" time="0"/>
+  <testcase classname="BaseTest" name="shouldThrow_whenMethodRemoveIsLoaded()" time="0.003"/>
+  <testcase classname="BaseTest" name="shouldReturnFalse_whenNotEmpty()" time="0"/>
   <testcase classname="BaseTest" name="shouldIncreaseSize_whenItemsGetPushed()" time="0"/>
   <testcase classname="FullCoverageTest" name="test()" time="0"/>
-  <testcase classname="FullMutationScoreTest" name="test()" time="0.001"/>
+  <testcase classname="FullMutationScoreTest" name="test()" time="0"/>
 </testsuite>
