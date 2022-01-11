@@ -1,0 +1,61 @@
+4.1.1
+Überlegen Sie sich eine Strategie um die Klasse zu testen und notieren Sie sich Ihre Vorgehensweise (Wie gehen Sie vor um gut zu testen?, Welche Strategien wenden Sie an?, Welche Verfahren eignen sich hier gut?,... ).
+
+Zuerst werden die zu testenden Klassen gut durchgelesen. Man sollte deren Funktionen verstehen und auf mögliche Exceptions achten. Danach werden die Methoden analysiert um herauszufinden welche returnwerte erreicht werden können.
+
+Es werden so der Reihe nach alle Methoden durchgegangen und getestet.
+
+Hier wird nur eine boolean Methode getestet:
+Es werden die 2 Ausgangsmöglichkeiten getestet: true/false
+d.h. einmal wird der ringBuffer leer gelassen und einmal
+aufgefüllt. Da es keine anderen Möglichkeiten gibt, ist diese
+Methode nun fertig getestet.
+
+Nun testen wir push( ):
+Hier haben wir ein paar Schwierigkeiten diese Methode zu testen:
+Der Anfang ist jedoch noch leicht: Wir testen ob die Methode bei einem Fehler die Exception wirft.
+Also einfach den Buffer überladen. 
+
+Nun kommt der schwierigere Teil. Wir testen diese Methode mithilfe einer anderen (hoffentlich vorher) getesteten Methode. Also Kontrollieren wir zuerst einmal ob der Buffer überhaupt leer war. Danach pushen wir ein Item und kontrollieren die ringBuffer.size() nocheinmal. Um ganz sicher zu gehen, dass die Methode auch wirklich werte hinzufügt und nicht setzt, nochmal das ganze. So können wir sichergehen, dass auch wirklich alles so funktioniert wie es soll.
+
+Das einzige was nun noch nicht getestet wurde, ist ob das richtige Item übergeben wurde. Dies wurde gleichzeitig mit der pop Methode getestet.
+
+
+
+
+
+4.1.5
+Bessere CodeCoverage. kann einen hohen MutationScore ergeben, jedoch muss auf den MutationScore extra acht gegeben werden.
+
+4.3.1
+McCabe 
+V(G) = E - N + 2
+V(G) = 7 - 6 + 2 = 3
+
+V(G) = P + 1
+V(G) = 2 + 1 = 3
+Basispfad1: 1, 2, 9
+Basispfad2: 1, 2, 3, 6, 2, 9
+Basispfad3: 1, 2, 3, 4, 2, 9
+
+
+4.3.2
+Obwohl nur 3 Tests geschrieben werden ist eine 100% Coverage gegeben. Also wurde das Minimum so herausgefunden welches für diese Klasse existiert. Aufpassen bei Pfad Coverage von Schleifen. Kann funktionieren, muss aber nicht.4.4
+LOC = 24
+Non-blank LOC = 19
+SLOC = 18
+LLOC = 12
+
+LOC: Einfach zum Ablesen & Ermitteln
+SLOC: Leicht zu berechnen
+LLOC: Was passiert mit verschachtelten Anweisungen z.B. for(i = 0; i<10;i++)
+
+4.5
+V(G) = 15 - 14 + 2 = 3
+V(G) = 2 + 1 = 
+Basispfad1: 1, 3, 4, 7, 8, 9, 15, 16, 19, 20, 21, 23
+Basispfad2: 1, 3, 4, 7, 11, 12, 15, 16, 19, 20, 21, 23
+Basispfad3: 1, 3, 4, 7, 11, 12, 15, 16, 19, 20, 21, 19, 20, 21, 23 (Schleifendurchlauf?)
+
+4.6
+Basispfade können ansich gleich sein, da Schleifendurchläufe nicht berücksichtigt werden. Dadurch könnten Fehler auftreten wenn man sich nur auf diese Metrik verlässt.  Mithilfe dieser Metrik kann jedoch recht schnell die Komplexität des Programmes dargestellt werden und wieviele verschieden Schleifen bzw Bedingungen es gibt.
