@@ -24,7 +24,7 @@ public class MyCollection {
      * @param s String to remove
      */
     public void add(String s) {
-<span class="nc bnc" id="L27" title="All 2 branches missed.">        if(cursor==list.length){</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (cursor == list.length) {</span>
 <span class="nc" id="L28">            throw new IllegalArgumentException(&quot;Liste bereits voll&quot;);</span>
         }
 <span class="nc" id="L30">        list[cursor++] = s;</span>
@@ -37,36 +37,38 @@ public class MyCollection {
      * @param s String to remove
      */
     public void remove(String s) throws IllegalArgumentException {
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (cursor == 0) {</span>
-<span class="nc" id="L41">            throw new IllegalArgumentException(&quot;Liste bereits leer&quot;);</span>
-        }
-<span class="nc" id="L43">        boolean foundRemovable = false;</span>
 
-<span class="nc bnc" id="L45" title="All 2 branches missed.">        for (int i = 0; i &lt; list.length; i++) {</span>
-<span class="nc bnc" id="L46" title="All 2 branches missed.">            if (list[i] == s) {</span>
-<span class="nc" id="L47">                list[i] = null;</span>
-<span class="nc" id="L48">                cursor--;</span>
-<span class="nc" id="L49">                foundRemovable = true;</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (cursor == 0) {</span>
+<span class="nc" id="L42">            throw new IllegalArgumentException(&quot;Liste bereits leer&quot;);</span>
+        }
+
+<span class="nc" id="L45">        boolean foundRemovable = false;</span>
+
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        for (int i = 0; i &lt; list.length; i++) {</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if (list[i] == s) {</span>
+<span class="nc" id="L49">                list[i] = null;</span>
+<span class="nc" id="L50">                cursor--;</span>
+<span class="nc" id="L51">                foundRemovable = true;</span>
             }
         }
 
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (!foundRemovable) {</span>
-<span class="nc" id="L54">            throw new IllegalArgumentException(&quot;Das zu entfernende Element wurde nicht gefunden.&quot;);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        if (!foundRemovable) {</span>
+<span class="nc" id="L56">            throw new IllegalArgumentException(&quot;Das zu entfernende Element wurde nicht gefunden.&quot;);</span>
         }
-<span class="nc" id="L56">    }</span>
+<span class="nc" id="L58">    }</span>
 
     /**
      * Removes all items from the list and initializes a new list
      */
     public void empty() {
-<span class="nc" id="L62">        String[] newList = new String[list.length];</span>
+<span class="nc" id="L64">        String[] newList = new String[list.length];</span>
 
-<span class="nc bnc" id="L64" title="All 2 branches missed.">        while (cursor &gt; 0) {</span>
-<span class="nc" id="L65">            cursor--;</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        while (cursor &gt; 0) {</span>
+<span class="nc" id="L67">            cursor--;</span>
         }
 
-<span class="nc" id="L68">        this.list = newList;</span>
-<span class="nc" id="L69">    }</span>
+<span class="nc" id="L70">        this.list = newList;</span>
+<span class="nc" id="L71">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

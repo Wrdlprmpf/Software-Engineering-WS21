@@ -24,7 +24,7 @@ public class MyCollection {
      * @param s String to remove
      */
     public void add(String s) {
-        if(cursor==list.length){
+        if (cursor == list.length) {
             throw new IllegalArgumentException("Liste bereits voll");
         }
         list[cursor++] = s;
@@ -37,9 +37,11 @@ public class MyCollection {
      * @param s String to remove
      */
     public void remove(String s) throws IllegalArgumentException {
+
         if (cursor == 0) {
             throw new IllegalArgumentException("Liste bereits leer");
         }
+
         boolean foundRemovable = false;
 
         for (int i = 0; i < list.length; i++) {

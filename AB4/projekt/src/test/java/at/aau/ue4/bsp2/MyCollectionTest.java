@@ -50,6 +50,11 @@ public class MyCollectionTest {
     }
 
     @Test
+    public void shouldThrow_whenAttemptingToRemoveNonExistentItem(){
+        assertThrows(IllegalArgumentException.class, ()->c.remove("gibsNit"));
+    }
+
+    @Test
     public void shouldBeSizeZero_whenEmptied(){
         assertEquals(3,c.size());
         c.empty();
