@@ -62,11 +62,7 @@ public class MyCollection {
      */
     public void empty() {
         String[] newList = new String[list.length];
-
-        while (cursor > 0) {
-            cursor--;
-        }
-
+        cursor = 0;
         this.list = newList;
     }
 
