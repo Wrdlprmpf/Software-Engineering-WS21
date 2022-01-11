@@ -38,7 +38,7 @@ public class MyCollection {
      */
     public void remove(String s) throws IllegalArgumentException {
 
-        if (cursor == 0) {
+        if (cursor <= 0) {
             throw new IllegalArgumentException("Liste bereits leer");
         }
 

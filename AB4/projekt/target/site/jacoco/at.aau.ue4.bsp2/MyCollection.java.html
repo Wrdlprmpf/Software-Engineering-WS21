@@ -38,7 +38,7 @@ public class MyCollection {
      */
     public void remove(String s) throws IllegalArgumentException {
 
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (cursor == 0) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (cursor &lt;= 0) {</span>
 <span class="nc" id="L42">            throw new IllegalArgumentException(&quot;Liste bereits leer&quot;);</span>
         }
 

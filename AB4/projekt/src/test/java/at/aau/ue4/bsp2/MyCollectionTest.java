@@ -61,4 +61,10 @@ public class MyCollectionTest {
         assertEquals(0, c.size());
     }
 
+    @Test
+    public void shouldThrow_whenAttemptingToRemoveFromNewEmptyCollection(){
+        c = new MyCollection(5);
+        Exception e = assertThrows(IllegalArgumentException.class, ()->c.remove("1"));
+        assertEquals(e.getMessage(), "Liste bereits leer");
+    }
 }
