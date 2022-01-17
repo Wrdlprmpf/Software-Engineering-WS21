@@ -8,12 +8,12 @@ import at.aau.ue5.bsp1.entity.Invoice;
 public class ListInvoiceDao extends AbstractListDao&lt;Long, Invoice&gt; implements
 		InvoiceDao {
 
-<span class="nc" id="L11">	public ListInvoiceDao() {</span>
-<span class="nc" id="L12">		this.currentId = 1L;</span>
-<span class="nc" id="L13">	}</span>
+<span class="fc" id="L11">	public ListInvoiceDao() {</span>
+<span class="fc" id="L12">		this.currentId = 1L;</span>
+<span class="fc" id="L13">	}</span>
 
 	public List&lt;Invoice&gt; findAll() {
-<span class="nc" id="L16">		return this.list;</span>
+<span class="fc" id="L16">		return this.list;</span>
 	}
 
 	public Invoice findOne(Long id) {
@@ -26,9 +26,9 @@ public class ListInvoiceDao extends AbstractListDao&lt;Long, Invoice&gt; impleme
 	}
 
 	public Invoice insert(Invoice element) {
-<span class="nc" id="L29">		element.setId(currentId++);</span>
-<span class="nc" id="L30">		this.list.add(element);</span>
-<span class="nc" id="L31">		return element;</span>
+<span class="fc" id="L29">		element.setId(currentId++);</span>
+<span class="fc" id="L30">		this.list.add(element);</span>
+<span class="fc" id="L31">		return element;</span>
 	}
 
 	public void delete(Long id) {

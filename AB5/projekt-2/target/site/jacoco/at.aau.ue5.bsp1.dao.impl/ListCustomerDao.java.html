@@ -34,26 +34,26 @@ public class ListCustomerDao extends AbstractListDao&lt;Long, Customer&gt; imple
 
 	public void delete(Long id) {
 <span class="fc" id="L36">		Customer cust = null;</span>
-<span class="pc bpc" id="L37" title="1 of 2 branches missed.">		for (Customer c : this.list) {</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">		for (Customer c : this.list) {</span>
 <span class="pc bpc" id="L38" title="1 of 2 branches missed.">			if (c.getId() == id) {</span>
 <span class="fc" id="L39">				cust = c;</span>
 <span class="fc" id="L40">				break;</span>
 			}
 <span class="nc" id="L42">		}</span>
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">		if (cust != null) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">		if (cust != null) {</span>
 <span class="fc" id="L44">			this.list.remove(cust);</span>
 		}
 <span class="fc" id="L46">	}</span>
 
 	public Customer update(Customer element) {
 <span class="fc" id="L49">		Customer cust = null;</span>
-<span class="pc bpc" id="L50" title="1 of 2 branches missed.">		for (Customer c : this.list) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">		for (Customer c : this.list) {</span>
 <span class="pc bpc" id="L51" title="1 of 2 branches missed.">			if (c.getId() == element.getId()) {</span>
 <span class="fc" id="L52">				cust = c;</span>
 <span class="fc" id="L53">				break;</span>
 			}
 <span class="nc" id="L55">		}</span>
-<span class="pc bpc" id="L56" title="1 of 2 branches missed.">		if (cust != null) {</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">		if (cust != null) {</span>
 <span class="fc" id="L57">			this.list.remove(cust);</span>
 		}
 <span class="fc" id="L59">		this.list.add(element);</span>

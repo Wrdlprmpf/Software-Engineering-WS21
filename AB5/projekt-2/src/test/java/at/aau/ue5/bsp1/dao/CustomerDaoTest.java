@@ -76,6 +76,11 @@ public class CustomerDaoTest {
     }
 
     @Test
+    public void shouldNotThrow_WhenDeletingWrongID(){
+        assertDoesNotThrow(()->listCustomerDao.delete(1L));
+    }
+
+    @Test
     public void shouldReturnOverwrittenCustomer_WhenUpdated(){
         customer0 = new Customer(25L,"Nico","Klagenfurt");
         listCustomerDao.insert(customer0);
@@ -83,7 +88,6 @@ public class CustomerDaoTest {
         customer1 = new Customer(1L,"Franz","Wernberg");
         assertEquals(customer0,listCustomerDao.update(customer1));
     }
-
 
     @Test
     public void shouldOverwriteCustomer_WhenUpdated(){
@@ -93,6 +97,12 @@ public class CustomerDaoTest {
         customer1 = new Customer(1L,"Franz","Wernberg");
         listCustomerDao.update(customer1);
         assertEquals(customer1,listCustomerDao.findOne(1L));
+    }
+
+    @Test
+    public void shouldNotThrow_WhenUpdatingNonAvailableID(){
+        customer2 = new Customer(15L,"GamingGaming","Wuifsberg");
+        assertNull(listCustomerDao.update(customer2));
     }
 
     @Test
