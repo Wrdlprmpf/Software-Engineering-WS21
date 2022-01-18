@@ -11,7 +11,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class InvoiceDaoTest {
     private Invoice invoice0;
@@ -40,9 +40,8 @@ public class InvoiceDaoTest {
 
     @Test
     public void shouldReturnAllInvoices_WhenCallingFindAll(){
-        invoice0 = new Invoice(1L,customer0,products0,true);
         invoice1 = new Invoice(1L,customer0,products0,true);
-        invoice2 = new Invoice(1L,customer0,products0,true);
+        invoice2 = new Invoice(1L,customer0,products0,false);
 
         listInvoiceDao.insert(invoice0);
         listInvoiceDao.insert(invoice1);
@@ -52,6 +51,66 @@ public class InvoiceDaoTest {
         assertEquals(invoice1, listInvoiceDao.findAll().get(1));
         assertEquals(invoice2, listInvoiceDao.findAll().get(2));
     }
+
+    @Test
+    public void shouldReturnInvoice_WhenLookingForID(){
+        listInvoiceDao.insert(invoice0);
+        assertEquals(invoice0, listInvoiceDao.findOne(1L));
+    }
+
+    @Test
+    public void shouldFindNoInvoice_WhenLookingForNonExistentID(){
+        assertNull(listInvoiceDao.findOne(1L));
+    }
+
+    @Test
+    public void shouldIncreaseInvoiceID_WhenAddingMultipleInvoices(){
+        invoice1 = new Invoice(10L,customer0,products0,false);
+
+        listInvoiceDao.insert(invoice0);
+        listInvoiceDao.insert(invoice1);
+
+        assertEquals(invoice0, listInvoiceDao.findOne(1L));
+        assertEquals(invoice1, listInvoiceDao.findOne(2L));
+    }
+
+    @Test
+    public void shouldDeleteInvoiceFromList_WhenDeletingItsID(){
+        listInvoiceDao.insert(invoice0);
+
+        listInvoiceDao.delete(1L);
+        assertNull(listInvoiceDao.findOne(1L));
+    }
+
+    @Test
+    public void shouldNotThrow_WhenDeletingWrongID(){
+        assertDoesNotThrow(()->listInvoiceDao.delete(1L));
+    }
+
+    @Test
+    public void shouldReturnOverwrittenInvoice_WhenUpdated(){
+        listInvoiceDao.insert(invoice0);
+
+        invoice1 = new Invoice(1L,customer0,products0,false);
+
+        assertEquals(invoice0, listInvoiceDao.update(invoice1));
+    }
+
+    @Test
+    public void shouldOverwriteInvoice_WhenUpdated(){
+        listInvoiceDao.insert(invoice0);
+
+        invoice1 = new Invoice(1L,customer0,products0,false);
+        listInvoiceDao.update(invoice1);
+        assertEquals(invoice1, listInvoiceDao.findOne(1L));
+    }
+
+    @Test
+    public void shouldNotThrow_WhenUpdatingNonAvailableID(){
+        assertNull(listInvoiceDao.update(invoice0));
+    }
+
+
 
 
 }

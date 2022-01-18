@@ -17,12 +17,12 @@ public class ListInvoiceDao extends AbstractListDao&lt;Long, Invoice&gt; impleme
 	}
 
 	public Invoice findOne(Long id) {
-<span class="nc bnc" id="L20" title="All 2 branches missed.">		for (Invoice i : this.list) {</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">			if (i.getId() == id) {</span>
-<span class="nc" id="L22">				return i;</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">		for (Invoice i : this.list) {</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">			if (i.getId() == id) {</span>
+<span class="fc" id="L22">				return i;</span>
 			}
-<span class="nc" id="L24">		}</span>
-<span class="nc" id="L25">		return null;</span>
+<span class="fc" id="L24">		}</span>
+<span class="fc" id="L25">		return null;</span>
 	}
 
 	public Invoice insert(Invoice element) {
@@ -32,31 +32,31 @@ public class ListInvoiceDao extends AbstractListDao&lt;Long, Invoice&gt; impleme
 	}
 
 	public void delete(Long id) {
-<span class="nc" id="L35">		Invoice inv = null;</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">		for (Invoice i : this.list) {</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">			if (i.getId() == id) {</span>
-<span class="nc" id="L38">				inv = i;</span>
-<span class="nc" id="L39">				break;</span>
+<span class="fc" id="L35">		Invoice inv = null;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">		for (Invoice i : this.list) {</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">			if (i.getId() == id) {</span>
+<span class="fc" id="L38">				inv = i;</span>
+<span class="fc" id="L39">				break;</span>
 			}
 <span class="nc" id="L41">		}</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">		if (inv != null) {</span>
-<span class="nc" id="L43">			this.list.remove(inv);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">		if (inv != null) {</span>
+<span class="fc" id="L43">			this.list.remove(inv);</span>
 		}
-<span class="nc" id="L45">	}</span>
+<span class="fc" id="L45">	}</span>
 
 	public Invoice update(Invoice element) {
-<span class="nc" id="L48">		Invoice inv = null;</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">		for (Invoice c : this.list) {</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">			if (c.getId() == element.getId()) {</span>
-<span class="nc" id="L51">				inv = c;</span>
-<span class="nc" id="L52">				break;</span>
+<span class="fc" id="L48">		Invoice inv = null;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">		for (Invoice c : this.list) {</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">			if (c.getId() == element.getId()) {</span>
+<span class="fc" id="L51">				inv = c;</span>
+<span class="fc" id="L52">				break;</span>
 			}
 <span class="nc" id="L54">		}</span>
-<span class="nc bnc" id="L55" title="All 2 branches missed.">		if (inv != null) {</span>
-<span class="nc" id="L56">			this.list.remove(inv);</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">		if (inv != null) {</span>
+<span class="fc" id="L56">			this.list.remove(inv);</span>
 		}
-<span class="nc" id="L58">		this.list.add(element);</span>
-<span class="nc" id="L59">		return inv;</span>
+<span class="fc" id="L58">		this.list.add(element);</span>
+<span class="fc" id="L59">		return inv;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

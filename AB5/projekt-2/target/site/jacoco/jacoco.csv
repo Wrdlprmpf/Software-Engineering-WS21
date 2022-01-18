@@ -10,10 +10,10 @@ se15,at.aau.ue5.bsp5,MyMath,3,100,1,5,1,15,1,10,0,8
 se15,at.aau.ue5.bsp5,Fraction,89,15,20,0,14,6,16,3,6,3
 se15,at.aau.ue5.bsp1.dao.impl,ListProductDao,118,0,16,0,31,0,14,0,6,0
 se15,at.aau.ue5.bsp1.dao.impl,AbstractListDao,0,8,0,0,0,2,0,1,0,1
-se15,at.aau.ue5.bsp1.dao.impl,ListInvoiceDao,85,33,16,0,24,7,11,3,3,3
+se15,at.aau.ue5.bsp1.dao.impl,ListInvoiceDao,2,116,2,14,2,29,2,12,0,6
 se15,at.aau.ue5.bsp1.dao.impl,ListCustomerDao,2,143,3,17,2,35,3,14,0,7
 se15,at.aau.ue5.bsp1.entity,Customer,131,27,29,1,35,11,21,5,6,5
 se15,at.aau.ue5.bsp1.entity,Product,146,12,30,0,41,5,25,1,10,1
-se15,at.aau.ue5.bsp1.entity,Invoice,175,24,37,1,47,10,29,3,10,3
+se15,at.aau.ue5.bsp1.entity,Invoice,172,27,37,1,46,11,28,4,9,4
 se15,at.aau.ue5.bsp2,CashMachine,187,0,28,0,50,0,21,0,7,0
 se15,at.aau.ue5.bsp2,CashMachineState,57,0,0,0,2,0,1,0,1,0
