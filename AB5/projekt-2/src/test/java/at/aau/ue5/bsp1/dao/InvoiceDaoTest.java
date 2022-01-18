@@ -22,26 +22,26 @@ public class InvoiceDaoTest {
     private ListInvoiceDao listInvoiceDao;
 
     @BeforeEach
-    public void init(){
+    public void init() {
         listInvoiceDao = new ListInvoiceDao();
-        customer0 = new Customer(1L,"Nico","Klagenfurt");
+        customer0 = new Customer(1L, "Nico", "Klagenfurt");
         products0 = new ArrayList<Product>();
-        products0.add(new Product(1L,"Apfel",1.59));
-        products0.add(new Product(2L,"Banane",2.29));
-        products0.add(new Product(3L,"Kiwi",0.89));
-        invoice0 = new Invoice(1L,customer0,products0,true);
+        products0.add(new Product(1L, "Apfel", 1.59));
+        products0.add(new Product(2L, "Banane", 2.29));
+        products0.add(new Product(3L, "Kiwi", 0.89));
+        invoice0 = new Invoice(1L, customer0, products0, true);
     }
 
     @Test
-    public void shouldReturnInvoice_WhenInvoiceGetsInserted(){
-        invoice0 = new Invoice(1L,customer0,products0,true);
+    public void shouldReturnInvoice_WhenInvoiceGetsInserted() {
+        invoice0 = new Invoice(1L, customer0, products0, true);
         assertEquals(invoice0, listInvoiceDao.insert(invoice0));
     }
 
     @Test
-    public void shouldReturnAllInvoices_WhenCallingFindAll(){
-        invoice1 = new Invoice(1L,customer0,products0,true);
-        invoice2 = new Invoice(1L,customer0,products0,false);
+    public void shouldReturnAllInvoices_WhenCallingFindAll() {
+        invoice1 = new Invoice(1L, customer0, products0, true);
+        invoice2 = new Invoice(1L, customer0, products0, false);
 
         listInvoiceDao.insert(invoice0);
         listInvoiceDao.insert(invoice1);
@@ -53,19 +53,19 @@ public class InvoiceDaoTest {
     }
 
     @Test
-    public void shouldReturnInvoice_WhenLookingForID(){
+    public void shouldReturnInvoice_WhenLookingForID() {
         listInvoiceDao.insert(invoice0);
         assertEquals(invoice0, listInvoiceDao.findOne(1L));
     }
 
     @Test
-    public void shouldFindNoInvoice_WhenLookingForNonExistentID(){
+    public void shouldFindNoInvoice_WhenLookingForNonExistentID() {
         assertNull(listInvoiceDao.findOne(1L));
     }
 
     @Test
-    public void shouldIncreaseInvoiceID_WhenAddingMultipleInvoices(){
-        invoice1 = new Invoice(10L,customer0,products0,false);
+    public void shouldIncreaseInvoiceID_WhenAddingMultipleInvoices() {
+        invoice1 = new Invoice(10L, customer0, products0, false);
 
         listInvoiceDao.insert(invoice0);
         listInvoiceDao.insert(invoice1);
@@ -75,42 +75,41 @@ public class InvoiceDaoTest {
     }
 
     @Test
-    public void shouldDeleteInvoiceFromList_WhenDeletingItsID(){
+    public void shouldDeleteInvoiceFromList_WhenDeletingItsID() {
         listInvoiceDao.insert(invoice0);
+        assertEquals(invoice0, listInvoiceDao.findOne(1L));
 
         listInvoiceDao.delete(1L);
         assertNull(listInvoiceDao.findOne(1L));
     }
 
     @Test
-    public void shouldNotThrow_WhenDeletingWrongID(){
-        assertDoesNotThrow(()->listInvoiceDao.delete(1L));
+    public void shouldNotThrow_WhenDeletingWrongID() {
+        assertDoesNotThrow(() -> listInvoiceDao.delete(1L));
     }
 
     @Test
-    public void shouldReturnOverwrittenInvoice_WhenUpdated(){
+    public void shouldReturnOverwrittenInvoice_WhenUpdated() {
         listInvoiceDao.insert(invoice0);
 
-        invoice1 = new Invoice(1L,customer0,products0,false);
+        invoice1 = new Invoice(1L, customer0, products0, false);
 
         assertEquals(invoice0, listInvoiceDao.update(invoice1));
     }
 
     @Test
-    public void shouldOverwriteInvoice_WhenUpdated(){
+    public void shouldOverwriteInvoice_WhenUpdated() {
         listInvoiceDao.insert(invoice0);
 
-        invoice1 = new Invoice(1L,customer0,products0,false);
+        invoice1 = new Invoice(1L, customer0, products0, false);
         listInvoiceDao.update(invoice1);
         assertEquals(invoice1, listInvoiceDao.findOne(1L));
     }
 
     @Test
-    public void shouldNotThrow_WhenUpdatingNonAvailableID(){
+    public void shouldNotThrow_WhenUpdatingNonAvailableID() {
         assertNull(listInvoiceDao.update(invoice0));
     }
-
-
 
 
 }

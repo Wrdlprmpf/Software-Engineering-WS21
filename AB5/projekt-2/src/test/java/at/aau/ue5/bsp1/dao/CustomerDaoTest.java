@@ -14,24 +14,23 @@ public class CustomerDaoTest {
     private Customer customer0;
     private Customer customer1;
     private Customer customer2;
-    private Customer customer3;
 
     @BeforeEach
-    public void initialize(){
+    public void initialize() {
         listCustomerDao = new ListCustomerDao();
     }
 
     @Test
-    public void shouldReturnCustomer_WhenCustomerGetsInserted(){
-        customer0 = new Customer(25L,"Nico","Klagenfurt");
+    public void shouldReturnCustomer_WhenCustomerGetsInserted() {
+        customer0 = new Customer(25L, "Nico", "Klagenfurt");
         assertEquals(customer0, listCustomerDao.insert(customer0));
     }
 
     @Test
-    public void shouldReturnAllCustomers_WhenCallingFindAll(){
-        customer0 = new Customer(1L,"Nico","Klagenfurt");
-        customer1 = new Customer(2L,"Tina","Wien");
-        customer2 = new Customer(3L,"Michi","Techelsberg");
+    public void shouldReturnAllCustomers_WhenCallingFindAll() {
+        customer0 = new Customer(1L, "Nico", "Klagenfurt");
+        customer1 = new Customer(2L, "Tina", "Wien");
+        customer2 = new Customer(3L, "Michi", "Techelsberg");
         listCustomerDao.insert(customer0);
         listCustomerDao.insert(customer1);
         listCustomerDao.insert(customer2);
@@ -43,32 +42,32 @@ public class CustomerDaoTest {
     }
 
     @Test
-    public void shouldFindFirstCustomer_WhenLookingForFirstID(){
-        customer0 = new Customer(25L,"Nico","Klagenfurt");
+    public void shouldFindFirstCustomer_WhenLookingForFirstID() {
+        customer0 = new Customer(25L, "Nico", "Klagenfurt");
         listCustomerDao.insert(customer0);
-        assertEquals(customer0,listCustomerDao.findOne(1L));
+        assertEquals(customer0, listCustomerDao.findOne(1L));
     }
 
     @Test
-    public void shouldFindNoCustomer_WhenLookingForWrongID(){
+    public void shouldFindNoCustomer_WhenLookingForWrongID() {
         assertNull(listCustomerDao.findOne(1L));
     }
 
     @Test
-    public void shouldIncreaseCustomerID_WhenAddingMultipleCustomers(){
-        customer0 = new Customer(25L,"Nico","Klagenfurt");
-        customer1 = new Customer(30L,"Tina","Wien");
+    public void shouldIncreaseCustomerID_WhenAddingMultipleCustomers() {
+        customer0 = new Customer(25L, "Nico", "Klagenfurt");
+        customer1 = new Customer(30L, "Tina", "Wien");
 
         listCustomerDao.insert(customer0);
         listCustomerDao.insert(customer1);
 
-        assertEquals(customer0,listCustomerDao.findOne(1L));
-        assertEquals(customer1,listCustomerDao.findOne(2L));
+        assertEquals(customer0, listCustomerDao.findOne(1L));
+        assertEquals(customer1, listCustomerDao.findOne(2L));
     }
 
     @Test
-    public void shouldDeleteCustomerFromList_WhenDeletingItsID(){
-        customer0 = new Customer(25L,"Nico","Klagenfurt");
+    public void shouldDeleteCustomerFromList_WhenDeletingItsID() {
+        customer0 = new Customer(25L, "Nico", "Klagenfurt");
         listCustomerDao.insert(customer0);
 
         listCustomerDao.delete(1L);
@@ -76,38 +75,38 @@ public class CustomerDaoTest {
     }
 
     @Test
-    public void shouldNotThrow_WhenDeletingWrongID(){
-        assertDoesNotThrow(()->listCustomerDao.delete(1L));
+    public void shouldNotThrow_WhenDeletingWrongID() {
+        assertDoesNotThrow(() -> listCustomerDao.delete(1L));
     }
 
     @Test
-    public void shouldReturnOverwrittenCustomer_WhenUpdated(){
-        customer0 = new Customer(25L,"Nico","Klagenfurt");
+    public void shouldReturnOverwrittenCustomer_WhenUpdated() {
+        customer0 = new Customer(25L, "Nico", "Klagenfurt");
         listCustomerDao.insert(customer0);
 
-        customer1 = new Customer(1L,"Franz","Wernberg");
-        assertEquals(customer0,listCustomerDao.update(customer1));
+        customer1 = new Customer(1L, "Franz", "Wernberg");
+        assertEquals(customer0, listCustomerDao.update(customer1));
     }
 
     @Test
-    public void shouldOverwriteCustomer_WhenUpdated(){
-        customer0 = new Customer(25L,"Nico","Klagenfurt");
+    public void shouldOverwriteCustomer_WhenUpdated() {
+        customer0 = new Customer(25L, "Nico", "Klagenfurt");
         listCustomerDao.insert(customer0);
 
-        customer1 = new Customer(1L,"Franz","Wernberg");
+        customer1 = new Customer(1L, "Franz", "Wernberg");
         listCustomerDao.update(customer1);
-        assertEquals(customer1,listCustomerDao.findOne(1L));
+        assertEquals(customer1, listCustomerDao.findOne(1L));
     }
 
     @Test
-    public void shouldNotThrow_WhenUpdatingNonAvailableID(){
-        customer2 = new Customer(15L,"GamingGaming","Wuifsberg");
+    public void shouldNotThrow_WhenUpdatingNonAvailableID() {
+        customer2 = new Customer(15L, "GamingGaming", "Wuifsberg");
         assertNull(listCustomerDao.update(customer2));
     }
 
     @Test
-    public void shouldReturnCustomer_WhenLookingForName(){
-        customer0 = new Customer(25L,"Nico","Klagenfurt");
+    public void shouldReturnCustomer_WhenLookingForName() {
+        customer0 = new Customer(25L, "Nico", "Klagenfurt");
         listCustomerDao.insert(customer0);
 
         assertEquals(customer0, listCustomerDao.findCustomerByName("Nico").get(0));

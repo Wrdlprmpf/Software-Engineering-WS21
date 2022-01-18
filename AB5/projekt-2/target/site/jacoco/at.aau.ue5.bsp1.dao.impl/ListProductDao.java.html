@@ -8,55 +8,55 @@ import at.aau.ue5.bsp1.entity.Product;
 public class ListProductDao extends AbstractListDao&lt;Long, Product&gt; implements
 		ProductDao {
 
-<span class="nc" id="L11">	public ListProductDao() {</span>
-<span class="nc" id="L12">		this.currentId = 1L;</span>
-<span class="nc" id="L13">	}</span>
+<span class="fc" id="L11">	public ListProductDao() {</span>
+<span class="fc" id="L12">		this.currentId = 1L;</span>
+<span class="fc" id="L13">	}</span>
 
 	public List&lt;Product&gt; findAll() {
-<span class="nc" id="L16">		return this.list;</span>
+<span class="fc" id="L16">		return this.list;</span>
 	}
 
 	public Product findOne(Long id) {
-<span class="nc bnc" id="L20" title="All 2 branches missed.">		for (Product p : this.list) {</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">			if (p.getId() == id) {</span>
-<span class="nc" id="L22">				return p;</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">		for (Product p : this.list) {</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">			if (p.getId() == id) {</span>
+<span class="fc" id="L22">				return p;</span>
 			}
-<span class="nc" id="L24">		}</span>
-<span class="nc" id="L25">		return null;</span>
+<span class="fc" id="L24">		}</span>
+<span class="fc" id="L25">		return null;</span>
 	}
 
 	public Product insert(Product element) {
-<span class="nc" id="L29">		element.setId(currentId++);</span>
-<span class="nc" id="L30">		this.list.add(element);</span>
-<span class="nc" id="L31">		return element;</span>
+<span class="fc" id="L29">		element.setId(currentId++);</span>
+<span class="fc" id="L30">		this.list.add(element);</span>
+<span class="fc" id="L31">		return element;</span>
 	}
 
 	public void delete(Long id) {
-<span class="nc" id="L35">		Product prod = null;</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">		for (Product p : this.list) {</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">			if (p.getId() == id) {</span>
-<span class="nc" id="L38">				prod = p;</span>
-<span class="nc" id="L39">				break;</span>
+<span class="fc" id="L35">		Product prod = null;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">		for (Product p : this.list) {</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">			if (p.getId() == id) {</span>
+<span class="fc" id="L38">				prod = p;</span>
+<span class="fc" id="L39">				break;</span>
 			}
 <span class="nc" id="L41">		}</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">		if (prod != null) {</span>
-<span class="nc" id="L43">			this.list.remove(prod);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">		if (prod != null) {</span>
+<span class="fc" id="L43">			this.list.remove(prod);</span>
 		}
-<span class="nc" id="L45">	}</span>
+<span class="fc" id="L45">	}</span>
 
 	public Product update(Product element) {
-<span class="nc" id="L48">		Product prod = null;</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">		for (Product c : this.list) {</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">			if (c.getId() == element.getId()) {</span>
-<span class="nc" id="L51">				prod = c;</span>
-<span class="nc" id="L52">				break;</span>
+<span class="fc" id="L48">		Product prod = null;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">		for (Product c : this.list) {</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">			if (c.getId() == element.getId()) {</span>
+<span class="fc" id="L51">				prod = c;</span>
+<span class="fc" id="L52">				break;</span>
 			}
 <span class="nc" id="L54">		}</span>
-<span class="nc bnc" id="L55" title="All 2 branches missed.">		if (prod != null) {</span>
-<span class="nc" id="L56">			this.list.remove(prod);</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">		if (prod != null) {</span>
+<span class="fc" id="L56">			this.list.remove(prod);</span>
 		}
-<span class="nc" id="L58">		this.list.add(element);</span>
-<span class="nc" id="L59">		return prod;</span>
+<span class="fc" id="L58">		this.list.add(element);</span>
+<span class="fc" id="L59">		return prod;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
