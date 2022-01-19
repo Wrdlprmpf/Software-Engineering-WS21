@@ -92,6 +92,4 @@ public class ProductDaoTest {
     public void shouldNotThrow_WhenUpdatingNonAvailableID() {
         assertNull(listProductDao.update(product0));
     }
-
-
 }

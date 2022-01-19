@@ -110,6 +110,4 @@ public class InvoiceDaoTest {
     public void shouldNotThrow_WhenUpdatingNonAvailableID() {
         assertNull(listInvoiceDao.update(invoice0));
     }
-
-
 }

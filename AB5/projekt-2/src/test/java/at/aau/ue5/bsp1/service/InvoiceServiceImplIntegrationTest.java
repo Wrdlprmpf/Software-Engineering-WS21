@@ -10,6 +10,7 @@ import at.aau.ue5.bsp1.service.exception.InvoiceServiceException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,8 +80,51 @@ public class InvoiceServiceImplIntegrationTest {
         assertThrows(InvoiceServiceException.class,()->invoiceService.deleteInvoice(testInvoice));
     }
 
-    
+    @Test
+    public void shouldReturnInvoice_WhenLookingForCertainCustomerInvoice()throws InvoiceServiceException{
+        invoiceService.createInvoice(products,customer0);
+        invoiceService.createInvoice(products,customer1);
 
+        Invoice testInvoice = new Invoice(1L,customer0,products,false);
+        Invoice testInvoice1 = new Invoice(2L,customer1,products,false);
+        assertEquals(testInvoice, invoiceService.findAllInvoicesByCustomer(customer0).get(0));
+        assertEquals(testInvoice1, invoiceService.findAllInvoicesByCustomer(customer1).get(0));
+    }
 
+    @Test
+    public void shouldThrow_WhenLookingForEmptyCustomer()throws InvoiceServiceException{
+        Customer customer2 = new Customer();
+        assertThrows(InvoiceServiceException.class,()->invoiceService.findAllInvoicesByCustomer(customer2));
+    }
 
+    @Test
+    public void shouldThrow_WhenCreatingInvoiceWithWrongCustomer()throws InvoiceServiceException{
+        Customer emptyCustomer = new Customer();
+        assertThrows(InvoiceServiceException.class, ()->invoiceService.createInvoice(products,emptyCustomer));
+    }
+
+    @Test
+    public void shouldThrow_WhenCreatingInvoiceWithWrongProducts()throws InvoiceServiceException{
+        ArrayList<Product> emptyProducts = new ArrayList<>();
+        Product emptyProduct = new Product();
+        emptyProducts.add(emptyProduct);
+        assertThrows(InvoiceServiceException.class,()->invoiceService.createInvoice(emptyProducts,customer0));
+    }
+
+    @Test
+    public void shouldReturnInvoice_WhenCreatingOne() throws InvoiceServiceException{
+        Invoice correctInvoice = new Invoice(1L,customer0,products,false);
+
+        assertEquals(correctInvoice, invoiceService.createInvoice(products,customer0));
+    }
+
+    @Test
+    public void shouldReturnProductDao_WhenGetterIsUsed()throws InvoiceServiceException{
+        assertEquals(listProductDao,invoiceService.getProductDao());
+    }
+
+    @Test
+    public void shouldReturnCustomerDao_WhenGetterIsUsed()throws InvoiceServiceException{
+        assertEquals(listCustomerDao, invoiceService.getCustomerDao());
+    }
 }

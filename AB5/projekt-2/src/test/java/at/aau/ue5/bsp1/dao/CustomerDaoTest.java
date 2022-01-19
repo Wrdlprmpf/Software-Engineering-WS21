@@ -111,6 +111,4 @@ public class CustomerDaoTest {
 
         assertEquals(customer0, listCustomerDao.findCustomerByName("Nico").get(0));
     }
-
-
 }
