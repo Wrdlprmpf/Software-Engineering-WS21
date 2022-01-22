@@ -14,7 +14,7 @@ public class CashMachineParameterTest {
     @ValueSource(strings = {"3141","1001","10","99102","9891","999331"})
     public void shouldReturnTrue_WhenCodeEndsNotWith42(String number){
         cashMachine.insertCard(number);
-        assertTrue(cashMachine.getCurrentState()==CashMachineState.CARD_INSERTED);
+        assertEquals(CashMachineState.CARD_INSERTED,cashMachine.getCurrentState());
     }
 
     @ParameterizedTest

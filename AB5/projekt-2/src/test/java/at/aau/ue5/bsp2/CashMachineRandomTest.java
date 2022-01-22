@@ -22,10 +22,10 @@ public class CashMachineRandomTest {
         //insertCard, takeCash, selectAmount, inputPin, removeCard
 
         cashMachine.insertCard("1234");
-        assertThrows(Exception.class, ()->cashMachine.takeCash());
-        assertThrows(Exception.class, ()->cashMachine.selectAmount(100));
+        assertThrows(IllegalStateException.class, ()->cashMachine.takeCash());
+        assertThrows(IllegalStateException.class, ()->cashMachine.selectAmount(100));
         cashMachine.inputPIN("1234");
-        assertThrows(Exception.class, ()->cashMachine.removeCard());
+        assertThrows(IllegalStateException.class, ()->cashMachine.removeCard());
     }
 
     @Test
@@ -34,9 +34,9 @@ public class CashMachineRandomTest {
 
         cashMachine.insertCard("1234");
         cashMachine.inputPIN("1234");
-        assertThrows(Exception.class, ()->cashMachine.takeCash());
+        assertThrows(IllegalStateException.class, ()->cashMachine.takeCash());
         cashMachine.selectAmount(150);
-        assertThrows(Exception.class, ()->cashMachine.removeCard());
+        assertThrows(IllegalStateException.class, ()->cashMachine.removeCard());
     }
 
     @Test
@@ -44,9 +44,9 @@ public class CashMachineRandomTest {
         //insertCard, selectAmount, takeCash, inputPin, removeCard
 
         cashMachine.insertCard("002242");
-        assertThrows(Exception.class, ()->cashMachine.selectAmount(24));
-        assertThrows(Exception.class, ()->cashMachine.takeCash());
-        assertThrows(Exception.class, ()->cashMachine.inputPIN("0011"));
-        assertThrows(Exception.class, ()->cashMachine.removeCard());
+        assertThrows(IllegalStateException.class, ()->cashMachine.selectAmount(24));
+        assertThrows(IllegalStateException.class, ()->cashMachine.takeCash());
+        assertThrows(IllegalStateException.class, ()->cashMachine.inputPIN("0011"));
+        assertThrows(IllegalStateException.class, ()->cashMachine.removeCard());
     }
 }

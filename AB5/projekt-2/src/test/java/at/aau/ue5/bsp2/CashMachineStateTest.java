@@ -52,6 +52,7 @@ public class CashMachineStateTest {
     @Test
     public void test4(){
         cashMachine.insertCard("1234");
+        assertTrue(cashMachine.getCurrentState() == CashMachineState.CARD_INSERTED);
         cashMachine.inputPIN("12345");
         cashMachine.inputPIN("12345");
         cashMachine.inputPIN("12345");
